@@ -1,0 +1,85 @@
+version: "2.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - oi
+    - olá
+    - como vai?
+    - alguém ai?
+    - Bom dia
+    - oie
+    - vamos lá
+    - hey
+    - Boa tarde
+
+- intent: goodbye
+  examples: |
+    - Tchau
+    - bye
+    - thau
+    - até mais
+    - tenha um bom dia
+    - agradeço a atenção
+
+- intent: affirm
+  examples: |
+    - sim
+    - s
+    - com ctza
+    - com certeza
+    - claro que sim
+
+- intent: deny
+  examples: |
+    - não
+    - nao
+    - n
+    - nunca
+    - acho que nao
+    - nem pensar
+    - claro que não
+
+- intent: mood_great
+  examples: |
+    - bem
+    - ótimo
+    - ótima
+    - estou bem
+    - vou indo
+
+- intent: mood_unhappy
+  examples: |
+    - meu dia está ruim
+    - estou mal
+    - estou triste
+    - muito triste
+    - super triste
+    - super mal
+    - infeliz
+
+- intent: bot_challenge
+  examples: |
+    - você é um bot?
+    - voce é um humano
+    - falo com um bot?
+    - falo com um humano?
+
+- intent: appointment_schedule
+  examples: |
+    - quero marcar uma consulta
+    - preciso marcar uma consulta
+    - como faço pra me consultar?
+    - como marco uma consulta?
+
+- intent: say_cpf
+  examples: |
+    - meu cpf é [73725072191](cpf)
+    - [01010101010](cpf)
+    - o numero do meu cpf é [00000000000](cpf)
+    - [494.404.221-21](cpf)
+    - [23498756710](cpf)
+
+- intent: hello_world
+  examples: |
+    - hello world

@@ -1,0 +1,43 @@
+version: "2.0"
+stories:
+- story: happy path 1 (./tests/test_stories.yml)
+  steps:
+  - intent: greet  # predicted: hello_world: hello there!
+  - action: utter_greet  # predicted: utter_request_cpf
+  - intent: mood_great  # predicted: deny: amazing
+  - action: utter_happy  # predicted: utter_start_iris
+- story: happy path 2 (./tests/test_stories.yml)
+  steps:
+  - intent: greet  # predicted: hello_world: hello there!
+  - action: utter_greet  # predicted: utter_request_cpf
+  - intent: mood_great  # predicted: deny: amazing
+  - action: utter_happy  # predicted: utter_start_iris
+  - intent: goodbye
+  - action: utter_goodbye
+- story: sad path 1 (./tests/test_stories.yml)
+  steps:
+  - intent: greet  # predicted: hello_world: hello
+  - action: utter_greet  # predicted: utter_request_cpf
+  - intent: mood_unhappy  # predicted: deny: not good
+  - action: utter_cheer_up  # predicted: utter_start_iris
+  - action: utter_did_that_help  # predicted: action_listen
+  - intent: affirm
+  - action: utter_happy  # predicted: action_hello_world
+- story: sad path 2 (./tests/test_stories.yml)
+  steps:
+  - intent: greet  # predicted: hello_world: hello
+  - action: utter_greet  # predicted: utter_request_cpf
+  - intent: mood_unhappy  # predicted: deny: not good
+  - action: utter_cheer_up  # predicted: utter_start_iris
+  - action: utter_did_that_help  # predicted: action_listen
+  - intent: deny
+  - action: utter_goodbye  # predicted: action_hello_world
+- story: sad path 3 (./tests/test_stories.yml)
+  steps:
+  - intent: greet
+  - action: utter_greet  # predicted: utter_request_cpf
+  - intent: mood_unhappy
+  - action: utter_cheer_up  # predicted: utter_start_iris
+  - action: utter_did_that_help  # predicted: action_listen
+  - intent: deny
+  - action: utter_goodbye  # predicted: action_hello_world

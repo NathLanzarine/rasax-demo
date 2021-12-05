@@ -1,0 +1,79 @@
+version: '2.0'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet
+- goodbye
+- affirm
+- deny
+- mood_great
+- mood_unhappy
+- bot_challenge
+- appointment_schedule
+- say_cpf
+- hello_world
+
+entities:
+- cpf
+
+slots:
+  first_name:
+    type: text
+    influence_conversation: true
+  last_name:
+    type: text
+    influence_conversation: true
+  cpf:
+    type: text
+    influence_conversation: true
+  requested_slot:
+    type: unfeaturized
+    influence_conversation: false
+    
+responses:
+  utter_slots_values:
+  - text: Sua consulta está marcada {first_name} {last_name}!
+  utter_ask_first_name:
+  - text: Qual seu primeiro nome?
+  utter_ask_last_name:
+  - text: Qual seu último nome?
+  utter_submit:
+  - text: Ok. Obrigada!
+  utter_request_cpf:
+  - text: Bom dia. Para prosseguir com o atendimento digite o número do seu CPF.
+  utter_start_iris:
+  - text: Olá {cpf}, Sou a íris atendente virtual do Paraná Clínicas.
+  utter_main_menu:
+  - buttons:
+    - payload: /schedule
+      title: 1 - Agendamento
+    - payload: /schedule_info
+      title: 2 - Informações de agendamento
+    - payload: cancel
+      title: 3 - Cancelamento
+    - payload: units_information
+      title: 4 - Informações sobre Unidades
+    text: 'Escolha a opção de atendimento. '
+  utter_greet:
+  - text: Hey! Como vai?
+  utter_cheer_up:
+  - image: https://i.imgur.com/nGF1K8f.jpg
+    text: 'Aqui tem algo que pode te ajudar:'
+  utter_did_that_help:
+  - text: Isso ajudou?
+  utter_happy:
+  - text: ótimo, se cuida!
+  utter_goodbye:
+  - text: Tchau. Obrigada por entrar em contato
+  utter_iamabot:
+  - text: Sou um Bot.
+actions:
+- action_hello_world
+forms:
+  name_form:
+    required_slots:
+      first_name:
+      - type: from_text
+      last_name:
+      - type: from_text
