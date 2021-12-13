@@ -1,5 +1,4 @@
 version: "2.0"
-
 nlu:
 - intent: greet
   examples: |
@@ -12,7 +11,6 @@ nlu:
     - vamos lá
     - hey
     - Boa tarde
-
 - intent: goodbye
   examples: |
     - Tchau
@@ -21,7 +19,6 @@ nlu:
     - até mais
     - tenha um bom dia
     - agradeço a atenção
-
 - intent: affirm
   examples: |
     - sim
@@ -29,7 +26,6 @@ nlu:
     - com ctza
     - com certeza
     - claro que sim
-
 - intent: deny
   examples: |
     - não
@@ -39,47 +35,47 @@ nlu:
     - acho que nao
     - nem pensar
     - claro que não
-
-- intent: mood_great
-  examples: |
-    - bem
-    - ótimo
-    - ótima
-    - estou bem
-    - vou indo
-
-- intent: mood_unhappy
-  examples: |
-    - meu dia está ruim
-    - estou mal
-    - estou triste
-    - muito triste
-    - super triste
-    - super mal
-    - infeliz
-
 - intent: bot_challenge
   examples: |
     - você é um bot?
     - voce é um humano
     - falo com um bot?
     - falo com um humano?
-
-- intent: appointment_schedule
+- intent: schedule_appointment
   examples: |
     - quero marcar uma consulta
     - preciso marcar uma consulta
     - como faço pra me consultar?
     - como marco uma consulta?
-
-- intent: say_cpf
+- regex: cpf
+  examples: |
+    - \d{11}
+- intent: inform_cpf
   examples: |
     - meu cpf é [73725072191](cpf)
     - [01010101010](cpf)
     - o numero do meu cpf é [00000000000](cpf)
-    - [494.404.221-21](cpf)
-    - [23498756710](cpf)
-
+    - [49440422121](cpf)
+    - [66666666666](cpf)
+    - [73725072191](cpf)
+- intent: inform_unit
+  examples: |
+    - unidade [mato grosso](unit_choice)
+    - unidade [afonso pena](unit_choice)
+    - unidade [centro](unit_choice)
+    - /inform_unit{"unit_choice":"centro"}
 - intent: hello_world
   examples: |
     - hello world
+- regex: appointment_info_menu_option
+  examples: |
+    - \d{1}
+- intent: give_appointment_info_menu_option
+  examples: |
+    - [0](appointment_info_menu_option)
+    - [1](appointment_info_menu_option)
+    - [2](appointment_info_menu_option)
+    - [3](appointment_info_menu_option)
+    - [4](appointment_info_menu_option)
+
+

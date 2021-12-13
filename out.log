@@ -1,0 +1,111 @@
+2021-12-08 16:19:53,371 [INFO ]  Starting Rasa server on http://localhost:5005
+2021-12-08 16:19:53,380 [INFO ]  Loading model models/20211208-154306.tar.gz...
+2021-12-08 16:19:55,177 [INFO ]  Loading model models/20211208-154306.tar.gz...
+2021-12-08 16:20:41,056 [WARNI]  The UnexpecTED Intent Policy is currently experimental and might change or be removed in the future 🔬 Please share your feedback on it in the forum (https://forum.rasa.com) to help us make this feature ready for production.
+2021-12-08 16:20:53,099 [INFO ]  Rasa server is up and running.
+2021-12-08 17:30:39,887 [ERROR]  Invalid Accept header. Domain can be provided as json ("Accept: application/json") oryml ("Accept: application/x-yaml"). Make sure you've set the appropriate Accept header.
+2021-12-08 17:33:35,130 [ERROR]  Invalid Accept header. Domain can be provided as json ("Accept: application/json") oryml ("Accept: application/x-yaml"). Make sure you've set the appropriate Accept header.
+2021-12-08 17:35:21,927 [ERROR]  Invalid Accept header. Domain can be provided as json ("Accept: application/json") oryml ("Accept: application/x-yaml"). Make sure you've set the appropriate Accept header.
+2021-12-09 10:50:16,668 [ERROR]  You must provide training data in the request body in order to train your model.
+2021-12-09 11:29:08,773 [ERROR]  The training request is missing the required key `config`.
+2021-12-09 11:30:31,879 [ERROR]  To train a Rasa model you need to specify at least one type of training data. Add `nlu` and/or `stories` to the request.
+2021-12-09 11:33:42,206 [ERROR]  To train a Rasa model you need to specify at least one type of training data. Add `nlu` and/or `stories` to the request.
+2021-12-09 11:36:35,929 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/model/train?token=thisismysecret'
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/sanic/app.py", line 938, in handle_request
+    response = await response
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/rasa/server.py", line 238, in decorated
+    result = await result
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/rasa/server.py", line 569, in decorated_function
+    return await f(request, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/rasa/server.py", line 640, in decorated_function
+    return await request.app.loop.run_in_executor(pool, run)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/concurrent/futures/thread.py", line 57, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/rasa/server.py", line 635, in run
+    return thread_loop.run_until_complete(f(request, *args, **kwargs))
+  File "uvloop/loop.pyx", line 1456, in uvloop.loop.Loop.run_until_complete
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/rasa/server.py", line 659, in decorated_function
+    return await f(*args, temporary_directory=Path(directory), **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/rasa/server.py", line 1063, in train
+    training_payload = _training_payload_from_json(request, temporary_directory)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/rasa/server.py", line 1484, in _training_payload_from_json
+    rasa.shared.utils.io.write_text_file(request_payload["config"], config_path)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/rasa/shared/utils/io.py", line 118, in write_text_file
+    file.write(content)
+TypeError: write() argument must be str, not list
+2021-12-09 11:37:21,596 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/model/train?token=thisismysecret'
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/sanic/app.py", line 938, in handle_request
+    response = await response
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/rasa/server.py", line 238, in decorated
+    result = await result
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/rasa/server.py", line 569, in decorated_function
+    return await f(request, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/rasa/server.py", line 640, in decorated_function
+    return await request.app.loop.run_in_executor(pool, run)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/concurrent/futures/thread.py", line 57, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/rasa/server.py", line 635, in run
+    return thread_loop.run_until_complete(f(request, *args, **kwargs))
+  File "uvloop/loop.pyx", line 1456, in uvloop.loop.Loop.run_until_complete
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/rasa/server.py", line 659, in decorated_function
+    return await f(*args, temporary_directory=Path(directory), **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/rasa/server.py", line 1063, in train
+    training_payload = _training_payload_from_json(request, temporary_directory)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/rasa/server.py", line 1484, in _training_payload_from_json
+    rasa.shared.utils.io.write_text_file(request_payload["config"], config_path)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/rasa/shared/utils/io.py", line 118, in write_text_file
+    file.write(content)
+TypeError: write() argument must be str, not list
+2021-12-09 11:38:35,834 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/model/train?token=thisismysecret'
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/sanic/app.py", line 938, in handle_request
+    response = await response
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/rasa/server.py", line 238, in decorated
+    result = await result
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/rasa/server.py", line 569, in decorated_function
+    return await f(request, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/rasa/server.py", line 640, in decorated_function
+    return await request.app.loop.run_in_executor(pool, run)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/concurrent/futures/thread.py", line 57, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/rasa/server.py", line 635, in run
+    return thread_loop.run_until_complete(f(request, *args, **kwargs))
+  File "uvloop/loop.pyx", line 1456, in uvloop.loop.Loop.run_until_complete
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/rasa/server.py", line 659, in decorated_function
+    return await f(*args, temporary_directory=Path(directory), **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/rasa/server.py", line 1063, in train
+    training_payload = _training_payload_from_json(request, temporary_directory)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/rasa/server.py", line 1484, in _training_payload_from_json
+    rasa.shared.utils.io.write_text_file(request_payload["config"], config_path)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/rasa/shared/utils/io.py", line 118, in write_text_file
+    file.write(content)
+TypeError: write() argument must be str, not list
+2021-12-09 11:48:51,138 [ERROR]  The training request is missing the required key `config`.
+2021-12-09 11:49:07,607 [ERROR]  To train a Rasa model you need to specify at least one type of training data. Add `nlu` and/or `stories` to the request.
+2021-12-09 11:49:22,766 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/model/train?token=thisismysecret'
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/sanic/app.py", line 938, in handle_request
+    response = await response
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/rasa/server.py", line 238, in decorated
+    result = await result
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/rasa/server.py", line 569, in decorated_function
+    return await f(request, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/rasa/server.py", line 640, in decorated_function
+    return await request.app.loop.run_in_executor(pool, run)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/concurrent/futures/thread.py", line 57, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/rasa/server.py", line 635, in run
+    return thread_loop.run_until_complete(f(request, *args, **kwargs))
+  File "uvloop/loop.pyx", line 1456, in uvloop.loop.Loop.run_until_complete
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/rasa/server.py", line 659, in decorated_function
+    return await f(*args, temporary_directory=Path(directory), **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/rasa/server.py", line 1063, in train
+    training_payload = _training_payload_from_json(request, temporary_directory)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/rasa/server.py", line 1484, in _training_payload_from_json
+    rasa.shared.utils.io.write_text_file(request_payload["config"], config_path)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/rasa/shared/utils/io.py", line 118, in write_text_file
+    file.write(content)
+TypeError: write() argument must be str, not list
+2021-12-09 14:09:30,660 [ERROR]  An unexpected error occurred. Error: 'text'
