@@ -67,10 +67,6 @@ slots:
     type: unfeaturized
     influence_conversation: false
 responses:
-  utter_info_schedule:
-  - text: Voce escolheu a opção {appointment_info_menu_option}
-  utter_submit:
-  - text: Ok. Obrigada!
   utter_request_cpf:
   - text: Bom dia. Para prosseguir com o atendimento digite o número do seu CPF.
   utter_start_iris:
@@ -97,12 +93,12 @@ responses:
   - text: Para visualizar preparo, digite 1. Para confirmar, digite 2. Para reagendar, digite 3. Para cancelar, digite 4. Voltar ao menu inicial, digite 0
   utter_appointment_info_test:
   - text: |
-      Escolha uma das opções abaixo:
-       Para visualizar preparo, digite 1
-       Para confirmar, digite 2 
-       Para reagendar, digite 3 
-       Para cancelar, digite 4 
-       Voltar ao menu inicial, digite 0 
+        Escolha uma das opções abaixo:
+        Para visualizar preparo, digite 1
+        Para confirmar, digite 2 
+        Para reagendar, digite 3 
+        Para cancelar, digite 4 
+        Voltar ao menu inicial, digite 0 
   utter_greet:
   - text: Hey! Como vai?
   utter_goodbye:
