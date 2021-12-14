@@ -1,70 +1,117 @@
 version: '2.0'
+config:
+  store_entities_as_slots: true
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- inform_cpf
-- greet
-- schedule_info
-- give_appointment_info_menu_option
-- goodbye
-- affirm
-- deny
-- mood_great
-- mood_unhappy
-- bot_challenge
-- schedule
-- appointment_schedule
-- hello_world
-- schedule_appointment
-- schedule_exam
-- mt_unit
-- ap_unit
-- centro_unit
-- inform_unit
-- units_information
-- nlu_fallback
+- inform_cpf:
+    use_entities: true
+- greet:
+    use_entities: true
+- schedule_info:
+    use_entities: true
+- give_appointment_info_menu_option:
+    use_entities: true
+- goodbye:
+    use_entities: true
+- affirm:
+    use_entities: true
+- deny:
+    use_entities: true
+- mood_great:
+    use_entities: true
+- mood_unhappy:
+    use_entities: true
+- bot_challenge:
+    use_entities: true
+- schedule:
+    use_entities: true
+- appointment_schedule:
+    use_entities: true
+- hello_world:
+    use_entities: true
+- schedule_appointment:
+    use_entities: true
+- schedule_exam:
+    use_entities: true
+- mt_unit:
+    use_entities: true
+- ap_unit:
+    use_entities: true
+- centro_unit:
+    use_entities: true
+- inform_unit:
+    use_entities: true
+- units_information:
+    use_entities: true
+- nlu_fallback:
+    use_entities: true
+- give_feedback:
+    use_entities: true
 entities:
 - appointment_info_menu_option
 - cpf
 - unit_choice
 slots:
   appointment_info_menu_option:
-    type: text
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: true
   unit_choice:
-    type: categorical
+    type: rasa.shared.core.slots.CategoricalSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: true
     values:
     - mato grosso
     - afonso pena
     - centro
   cpf:
-    type: text
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: true
   user_name:
-    type: text
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: true
   specialty:
-    type: text
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: true
   procedure:
-    type: text
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: true
   doctor:
-    type: text
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: true
   unit:
-    type: text
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: true
   date:
-    type: text
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: true
   time:
-    type: text
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: true
   requested_slot:
-    type: unfeaturized
+    type: rasa.shared.core.slots.UnfeaturizedSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: false
 responses:
   utter_request_cpf:
@@ -93,12 +140,12 @@ responses:
   - text: Para visualizar preparo, digite 1. Para confirmar, digite 2. Para reagendar, digite 3. Para cancelar, digite 4. Voltar ao menu inicial, digite 0
   utter_appointment_info_test:
   - text: |
-        Escolha uma das opções abaixo:
-        Para visualizar preparo, digite 1
-        Para confirmar, digite 2 
-        Para reagendar, digite 3 
-        Para cancelar, digite 4 
-        Voltar ao menu inicial, digite 0 
+      Escolha uma das opções abaixo:
+      Para visualizar preparo, digite 1
+      Para confirmar, digite 2 
+      Para reagendar, digite 3 
+      Para cancelar, digite 4 
+      Voltar ao menu inicial, digite 0 
   utter_greet:
   - text: Hey! Como vai?
   utter_goodbye:
@@ -106,7 +153,7 @@ responses:
   utter_iamabot:
   - text: Sou um Bot.
   utter_schedule_resume:
-  - text: Resumo do agendamento - {date} as {time}, {procedure} com Dr(a) {doctor}, na unidade - {unit}. Para confirmar digite 1. Cancelar e voltar ao menu inicial digite 0
+  - text: Resumo do agendamento - {date} as {time}, {procedure} com Dr(a) {doctor}, na unidade - {unit}. Para confirmar digite 1. Cancelar e voltar ao menu inicial digite 0!!
   utter_ask_specialty:
   - text: Qual especialidade do médico?
   utter_ask_procedure:
@@ -128,6 +175,8 @@ responses:
     - payload: /inform_unit{{"unit_choice":"centro"}}
       title: 3 - Unidade Centro
     text: Escolha de qual unidade deseja receber as informações.
+  utter_give_feedback:
+  - text: Pode falar sua opinião
 actions:
 - action_confirm_procedure
 - action_get_pacient_info
@@ -142,19 +191,20 @@ actions:
 forms:
   schedule_appointment_form:
     required_slots:
-      specialty:
-      - type: from_text
-      procedure:
+      date:
       - type: from_text
       doctor:
       - type: from_text
-      unit:
+      procedure:
       - type: from_text
-      date:
+      specialty:
       - type: from_text
       time:
+      - type: from_text
+      unit:
       - type: from_text
   schedule_exam_form:
     required_slots:
       procedure_code:
       - type: from_text
+e2e_actions: []
