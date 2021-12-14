@@ -47,9 +47,6 @@ nlu:
     - preciso marcar uma consulta
     - como faço pra me consultar?
     - como marco uma consulta?
-- regex: cpf
-  examples: |
-    - \d{11}
 - intent: inform_cpf
   examples: |
     - meu cpf é [73725072191](cpf)
@@ -67,9 +64,6 @@ nlu:
 - intent: hello_world
   examples: |
     - hello world
-- regex: appointment_info_menu_option
-  examples: |
-    - \d{1}
 - intent: give_appointment_info_menu_option
   examples: |
     - [0](appointment_info_menu_option)
@@ -77,5 +71,12 @@ nlu:
     - [2](appointment_info_menu_option)
     - [3](appointment_info_menu_option)
     - [4](appointment_info_menu_option)
-
-
+- intent: give_feedback
+  examples: |
+    - quero dar um feedback
+- regex: appointment_info_menu_option
+  examples: |
+    - \d{1}
+- regex: cpf
+  examples: |
+    - \d{11}
