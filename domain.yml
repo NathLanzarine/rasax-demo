@@ -195,9 +195,9 @@ forms:
       - type: from_text
       doctor:
       - type: from_text
-      procedure:
-      - type: from_text
       specialty:
+      - type: from_text
+      procedure:
       - type: from_text
       time:
       - type: from_text
