@@ -9,7 +9,7 @@ stories:
   - action: utter_start_iris
   - action: utter_main_menu
   - intent: schedule
-  - action: utter_schedule_menu
+  - action: utter_schedule
 - story: happy Information Scheduled exams
   steps:
   - intent: greet
@@ -19,7 +19,7 @@ stories:
   - action: utter_start_iris
   - action: utter_main_menu
   - intent: schedule_info
-  - action: utter_appointment_info_test
+  - action: utter_schedule_info
   - intent: give_appointment_info_menu_option
   - action: action_info_appointment_options
 - story: hello world
