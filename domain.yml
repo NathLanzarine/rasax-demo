@@ -129,7 +129,7 @@ responses:
     - payload: /units_information
       title: 4 - Informações sobre Unidades
     text: 'Escolha a opção de atendimento. '
-  utter_schedule:
+  utter_schedule_menu:
   - buttons:
     - payload: /schedule_appointment
       title: 1 - Agendamento de consulta
@@ -138,7 +138,7 @@ responses:
     text: Escolha a opção de agendamento.
   utter_appointment_info:
   - text: Para visualizar preparo, digite 1. Para confirmar, digite 2. Para reagendar, digite 3. Para cancelar, digite 4. Voltar ao menu inicial, digite 0
-  utter_schedule_info:
+  utter_appointment_info_test:
   - text: |
       Escolha uma das opções abaixo:
       Para visualizar preparo, digite 1
@@ -184,7 +184,7 @@ actions:
 - action_info_appointment_options
 - action_units_info
 - action_view_prepare
-- utter_schedule_info
+- utter_appointment_info_test
 - utter_main_menu
 - utter_request_cpf
 - utter_start_iris
